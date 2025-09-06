@@ -21,8 +21,8 @@ Algumas de nossas comunidades técnicas (links para Meetup e YouTube):
 - [Azure Talks](https://www.meetup.com/azure-talks/)
 - [DevOps Professionals](https://www.meetup.com/DevOps-Professionals/)
 - [Canal .NET](https://www.youtube.com/canaldotnet)
-- [Azure na Prática](www.youtube.com/azurenapratica)
-- [Coding Night](www.youtube.com/codingnight)
+- [Azure na Prática](https://www.youtube.com/azurenapratica)
+- [Coding Night](https://www.youtube.com/codingnight)
 
 Referências utilizadas:
 - [GitHub Actions](https://docs.github.com/en/actions)
