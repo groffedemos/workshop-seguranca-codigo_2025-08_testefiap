@@ -232,6 +232,11 @@ jobs:
           cd ${{ env.DIR_DEVOPS_ARTIFACTS }}
           kubectl apply -f job-teste.yaml -n integrationtests
 
+      - name: Deployment do ConfigMap no ambiente de testes - namespace integrationtests
+        run: |
+          cd ${{ env.DIR_DEVOPS_ARTIFACTS }}
+          kubectl apply -f configmap-exemplo.yaml -n integrationtests
+
       - name: Verificar deployment do Job no ambiente de testes - namespace integrationtests
         run: |
           kubectl get all -n integrationtests
