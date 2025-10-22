@@ -176,6 +176,7 @@ jobs:
   tests:
     needs: kubernetes_yaml_scanning
     runs-on: ubuntu-latest
+    if: always()
 
     steps:
       - uses: actions/checkout@v4
@@ -255,3 +256,7 @@ jobs:
       - name: Verificar ConfigMaps no ambiente de testes - namespace integrationtests
         run: |
           kubectl get configmaps -n integrationtests
+
+      - name: Instalar a ferramenta Kor para analise de objetos no cluster Kubernetes
+        run: |
+          go install github.com/yonahd/kor@latest
