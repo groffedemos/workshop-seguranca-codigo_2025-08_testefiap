@@ -251,7 +251,7 @@ jobs:
       - name: Deployment do ConfigMap no ambiente de testes - namespace integrationtests
         run: |
           cd ${{ env.DIR_DEVOPS_ARTIFACTS }}
-          kubectl apply -f configmap-teste.yaml -n integrationtests
+          kubectl apply -f configmap-teste.yml -n integrationtests
 
       - name: Verificar ConfigMaps no ambiente de testes - namespace integrationtests
         run: |
