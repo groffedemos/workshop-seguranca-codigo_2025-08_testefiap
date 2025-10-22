@@ -260,3 +260,7 @@ jobs:
       - name: Instalar a ferramenta Kor para analise de objetos no cluster Kubernetes
         run: |
           go install github.com/yonahd/kor@latest
+
+      - name: Analisar recursos que nao estao em uso no cluster Kubernetes com a ferramenta Kor
+        run: |
+          kor all -n integrationtests
