@@ -177,7 +177,6 @@ jobs:
   tests:
     needs: kubernetes_yaml_scanning
     runs-on: ubuntu-latest
-    if: always()
 
     steps:
       - uses: actions/checkout@v4
