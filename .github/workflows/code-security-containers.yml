@@ -10,6 +10,7 @@ on:
 
 env:
   URL_GITLEAKS_RELEASE: 'https://github.com/gitleaks/gitleaks/releases/download/v8.28.0/gitleaks_8.28.0_linux_x64.tar.gz'
+  URL_KOR_RELEASE: 'https://github.com/yonahd/kor/releases/download/v0.6.5/kor_Linux_x86_64.tar.gz'
   DIR_DOCKERFILE: './src/ConsoleAppJobHttpRequest'
   DIR_DEVOPS_ARTIFACTS: './devops'
   DIR_TESTS: './tests'
@@ -257,9 +258,24 @@ jobs:
         run: |
           kubectl get configmaps -n integrationtests
 
-      - name: Instalar a ferramenta Kor para analise de objetos no cluster Kubernetes
+      - name: Instalar o Kor
         run: |
-          go install github.com/yonahd/kor@latest
+          mkdir tmp-kor
+          cd tmp-kor
+          echo ''
+          echo "Url utilizada para download do Kor: ${{ env.URL_KOR_RELEASE }}"
+          echo ''
+          curl -L -o kor.tar.gz ${{ env.URL_KOR_RELEASE }}
+          tar -xvzf kor.tar.gz
+          ls
+          chmod +x kor
+          sudo mv kor /usr/local/bin/
+          cd ..
+          rm -rf tmp-kor
+
+      - name: Testar o Kor
+        run: |
+          kor
 
       - name: Analisar recursos que nao estao em uso no cluster Kubernetes com a ferramenta Kor
         run: |
