@@ -275,7 +275,7 @@ jobs:
 
       - name: Testar o Kor
         run: |
-          kor
+          kor --help
 
       - name: Analisar recursos que nao estao em uso no cluster Kubernetes com a ferramenta Kor
         run: |
